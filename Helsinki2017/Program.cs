@@ -7,6 +7,25 @@ using System.IO;
 
 namespace Helsinki2017
 {
+    class korcsolya
+    {
+        public string nev;
+        public string orszag;
+        public double TechnikaiPontszam;
+        public double KPontszam;
+        public int hibapont;
+        public double OPontSzam;
+
+        public korcsolya(string adatok)
+        {
+            string[] sorok = adatok.Split(';');
+            nev = sorok[0];
+            orszag = sorok[1];
+            TechnikaiPontszam = Convert.ToDouble(sorok[2].Replace('.', ','));
+            KPontszam = Convert.ToDouble(sorok[3].Replace('.', ','));
+            hibapont = Convert.ToInt32(sorok[4]);
+        }
+    }
     class Program
     {
         static List<korcsolya> Rovidlista = new List<korcsolya>();
@@ -150,25 +169,5 @@ namespace Helsinki2017
         }
 
     }
-    class korcsolya 
-    {
-        public string nev;
-        public string orszag;
-        public double TechnikaiPontszam;
-        public double KPontszam;
-        public int hibapont;
-        public double OPontSzam;
-
-        public korcsolya(string adatok) {
-            string[] sorok = adatok.Split(';');
-            nev = sorok[0];
-            orszag = sorok[1];
-            TechnikaiPontszam = Convert.ToDouble(sorok[2].Replace('.', ','));
-            KPontszam = Convert.ToDouble(sorok[3].Replace('.', ','));
-            hibapont = Convert.ToInt32(sorok[4]);
-
-        
-        
-        }
-    }
+   
 }
